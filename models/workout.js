@@ -36,15 +36,14 @@ const workoutSchema = new Schema(
                     type: Number,
                 },
             },
-        ],
-    },
-    {
-        toJSON: {
-            // we include virtuals because the mongoose doesn't inlcude virtual properties, we would have to specify the inclusion for json data.
-            virtuals: true,
-        },
+        ]
+    }, {
+    toJSON: {
+        virtuals: true
     }
+}
 );
+
 // adds a virtual(calculated property) field to the schema
 workoutSchema.virtual("totalWeight").get(function () {
     // adding the total weight of the exercises together
